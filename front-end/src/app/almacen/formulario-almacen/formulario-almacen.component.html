@@ -1,0 +1,21 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Capacidad</mat-label>
+        <input matInput formControlName="capacidad" type="number">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresCapacidad()}}</mat-error>
+    </mat-form-field>
+    <section class="check-section">
+        <mat-checkbox class="check-margin">   
+            Habilitada 
+        </mat-checkbox>
+    </section>
+    <div>
+        <button mat-flat-button color="primary" [disabled]="!form.valid">Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/almacen">Cancelar</a>
+    </div>
+</form>

@@ -1,0 +1,155 @@
+<app-menu (onMenu)="drawer.toggle()"></app-menu>
+<mat-drawer-container class="example-container" [hasBackdrop]="this.hasBackdrop">
+    <mat-drawer #drawer [mode]="this.mode">
+        <button mat-menu-item routerLink="">
+            <mat-icon>home</mat-icon> Principal 
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [matMenuTriggerFor]="administrar">
+            <mat-icon>source</mat-icon> Administrar 
+        </button>
+        <mat-menu #administrar="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="empresa">
+                <mat-icon>business</mat-icon> Empresas
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="sucursal">
+                <mat-icon>add_business</mat-icon> Sucursales 
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="almacen">
+                <mat-icon>account_balance</mat-icon> Almacenes 
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="configuraciones">
+                <mat-icon>miscellaneous_services</mat-icon> Configuraciones 
+            </button>
+        </mat-menu>
+        <mat-menu #empresa="matMenu">
+            <button mat-menu-item routerLink="empresa/crear">Nueva Empresa</button>
+            <button mat-menu-item routerLink="empresa">Administrar Empresas</button>
+        </mat-menu>
+        <mat-menu #sucursal="matMenu">
+            <button mat-menu-item routerLink="sucursal/crear">Nueva Sucursal</button>
+            <button mat-menu-item routerLink="sucursal">Administrar Sucursales</button>
+        </mat-menu>
+        <mat-menu #almacen="matMenu">
+            <button mat-menu-item routerLink="almacen/crear">Nuevo Almacen</button>
+            <button mat-menu-item routerLink="almacen">Administrar Almacenes</button>
+            <button mat-menu-item [matMenuTriggerFor]="producto" >Administrar Productos</button>
+            <!-- <button mat-menu-item routerLink="inventarios">Administrar Inventarios</button> -->
+        </mat-menu>
+        <mat-menu #producto="matMenu">
+            <button mat-menu-item routerLink="producto/crear">Nuevo Producto</button>
+            <button mat-menu-item routerLink="producto">Administrar Productos</button>
+        </mat-menu>
+        <mat-menu #configuraciones="matMenu">
+            <!-- <button mat-menu-item routerLink="parametros">Parametros Generales</button> -->
+            <button mat-menu-item [matMenuTriggerFor]="correlativo">Correlativos</button>
+            <button mat-menu-item [matMenuTriggerFor]="CtaCte">Cuentas</button>
+        </mat-menu>
+        <mat-menu #correlativo="matMenu">
+            <button mat-menu-item routerLink="correlativo/crear">Nuevo Correlativo</button>
+            <button mat-menu-item routerLink="correlativo">Administrar Correlativos</button>
+        </mat-menu>
+        <mat-menu #CtaCte="matMenu">
+            <button mat-menu-item routerLink="cuenta/crear">Nueva Cuenta</button>
+            <button mat-menu-item routerLink="cuenta">Administrar Cuentas</button>
+        </mat-menu>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [matMenuTriggerFor]="clientes">
+            <mat-icon>group</mat-icon> Clientes 
+        </button>
+        <mat-menu #clientes="matMenu">
+            <button mat-menu-item routerLink="cliente/crear">Nuevo Cliente</button>
+            <button mat-menu-item routerLink="cliente">Administrar Clientes</button>
+        </mat-menu>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [matMenuTriggerFor]="ventas">
+            <mat-icon>shopping_cart</mat-icon> Facturacion 
+        </button>
+        <mat-menu #ventas="matMenu">
+            <button mat-menu-item routerLink="venta/crear">Nueva Venta</button>
+            <button mat-menu-item routerLink="venta">Administrar Ventas</button>
+        </mat-menu>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [matMenuTriggerFor]="caja">
+            <mat-icon>attach_money</mat-icon> Caja 
+        </button>
+        <mat-menu #caja="matMenu">
+            <!-- <button mat-menu-item routerLink="cobranza">Cobranza</button> -->
+            <button mat-menu-item routerLink="caja/crear">Nueva Caja</button>
+            <button mat-menu-item routerLink="caja">Administrar Cajas</button>
+        </mat-menu>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [matMenuTriggerFor]="compra">
+            <mat-icon>local_shipping</mat-icon> Compras Internas
+        </button>
+        <mat-menu #compra="matMenu">
+            <button mat-menu-item routerLink="compra/crear">Nueva Compra</button>
+            <button mat-menu-item routerLink="compra">Administrar Compras</button>
+        </mat-menu>
+        <mat-menu #ventas="matMenu">
+            <button mat-menu-item routerLink="clientes/crear">Nueva Venta</button>
+            <button mat-menu-item routerLink="clientes">Administrar Ventas</button>
+        </mat-menu>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [matMenuTriggerFor]="mantenimiento">
+            <mat-icon>engineering</mat-icon> Mantenimiento 
+        </button>
+        <mat-menu #mantenimiento="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="bancos">
+                <mat-icon>savings</mat-icon> Bancos
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="formasPago">
+                <mat-icon>payments</mat-icon> Formas de Pago 
+            </button>
+        </mat-menu>
+        <mat-menu #bancos="matMenu">
+            <button mat-menu-item routerLink="banco/crear">Nuevo Banco</button>
+            <button mat-menu-item routerLink="banco">Administrar Bancos</button>
+        </mat-menu>
+        <mat-menu #formasPago="matMenu">
+            <button mat-menu-item routerLink="formasPago/crear">Nueva Forma de Pago</button>
+            <button mat-menu-item routerLink="formasPago">Administrar Formas de Pago</button>
+        </mat-menu>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [matMenuTriggerFor]="seguridad">
+            <mat-icon>verified_user</mat-icon> Seguridad 
+        </button>
+        <mat-menu #seguridad="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="usuarios">
+                <mat-icon>manage_accounts</mat-icon> Usuarios
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="roles">
+                <mat-icon>badge</mat-icon> Roles 
+            </button>
+            <!-- <button mat-menu-item [matMenuTriggerFor]="permisos">
+                <mat-icon>assignment_ind</mat-icon> Permisos 
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="accesos">
+                <mat-icon>recent_actors</mat-icon> Accesos 
+            </button> -->
+        </mat-menu>
+        <mat-menu #usuarios="matMenu">
+            <button mat-menu-item routerLink="usuario/crear">Nuevo Usuario</button>
+            <button mat-menu-item routerLink="usuario">Administrar Usuarios</button>
+        </mat-menu>
+        <mat-menu #roles="matMenu">
+            <button mat-menu-item routerLink="rol/crear">Nuevo Rol</button>
+            <button mat-menu-item routerLink="rol">Administrar Roles</button>
+        </mat-menu>
+        <!-- <mat-menu #permisos="matMenu">
+            <button mat-menu-item routerLink="permiso">Administrar Permisos</button>
+        </mat-menu>
+        <mat-menu #accesos="matMenu">
+            <button mat-menu-item routerLink="permiso">Listado de Acessos</button>
+        </mat-menu> -->
+        <!-- <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="usuario">
+            <mat-icon>price_change</mat-icon> Tipo Cambio 
+        </button> -->
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

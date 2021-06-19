@@ -1,0 +1,26 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErrorNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Codigo Fiscal*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErrorNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Telefono</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErrorNombre()}}</mat-error>
+    </mat-form-field>
+    <section class="check-section">
+        <mat-checkbox class="check-margin">   
+            Habilitada 
+        </mat-checkbox>
+    </section>
+    <div>
+        <button mat-flat-button color="primary" [disabled]="!form.valid"> Guardar Cambios </button>
+        <a mat-stroked-button routerLink="/sucursal">Cancelar</a>
+    </div>
+</form>

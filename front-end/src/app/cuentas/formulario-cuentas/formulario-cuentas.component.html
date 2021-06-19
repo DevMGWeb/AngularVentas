@@ -1,0 +1,31 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <mat-form-field appearance="outline">
+        <mat-label>Numero Cuenta*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error></mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Concepto</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error></mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Banco</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error></mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Funciones</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error></mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Comentarios Adiccionales</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error></mat-error>
+    </mat-form-field>
+    <div>
+        <button mat-flat-button color="primary">Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/cuenta">Cancelar</a>
+    </div>
+</form>

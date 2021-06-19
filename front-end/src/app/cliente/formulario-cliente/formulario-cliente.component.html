@@ -1,0 +1,19 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{mostrarErroresNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput formControlName="fechaNacimiento" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <app-input-img [title]="'Imagen'" [urlImagenActual]="modelo?.foto" (archivoSeleccionado)="archivoSeleccionado($event)"></app-input-img>
+    <app-input-markdown></app-input-markdown>
+    <div>
+        <button mat-flat-button color="primary" [disabled]="!form.valid">Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/cliente">Cancelar</a>
+    </div>
+</form>

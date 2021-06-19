@@ -1,0 +1,31 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <mat-form-field appearance="outline">
+        <mat-label>Razon Social*</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre Comercial</mat-label>
+        <input matInput formControlName="nombreComercial">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombreComercial()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Ruc*</mat-label>
+        <input matInput formControlName="ruc">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresRuc()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Telefono*</mat-label>
+        <input matInput formControlName="telefono">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Email*</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresEmail()}}</mat-error>
+    </mat-form-field>
+    <app-input-img [title]="'Logo'" [urlImagenActual]="modelo?.foto" (archivoSeleccionado)="archivoSeleccionado($event)"></app-input-img>
+    <div>
+        <button mat-flat-button color="primary" [disabled]="!form.valid"> Guardar Cambios </button>
+        <a mat-stroked-button routerLink="/empresa">Cancelar</a>
+    </div>
+</form>

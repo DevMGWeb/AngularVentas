@@ -1,0 +1,10 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <mat-form-field appearance="outline">
+        <mat-label>Correlativo Actual*</mat-label>
+        <input matInput formControlName="correlativoActual">
+    </mat-form-field>
+    <div>
+        <button mat-flat-button color="primary">Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/correlativo">Cancelar</a>
+    </div>
+</form>

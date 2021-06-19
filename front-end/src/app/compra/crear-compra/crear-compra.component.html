@@ -1,0 +1,13 @@
+<h2>Crear Compra</h2>
+
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombre()}}</mat-error>
+    </mat-form-field>
+    <div>
+        <button mat-flat-button color="primary" [disabled]="!form.valid">Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/compra">Cancelar</a>
+    </div>
+</form>

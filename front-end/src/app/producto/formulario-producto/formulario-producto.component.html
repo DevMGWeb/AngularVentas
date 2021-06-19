@@ -1,0 +1,59 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Codigo Interno*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Codigo Barra*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Stock Minimo*</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombre()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Marca</mat-label>
+        <mat-select formControlName="selected">
+            <mat-option>Clear</mat-option>
+            <mat-option value="valid">Valid option</mat-option>
+            <mat-option value="invalid">Invalid option</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Modelo</mat-label>
+        <mat-select formControlName="selected">
+            <mat-option>Clear</mat-option>
+            <mat-option value="valid">Valid option</mat-option>
+            <mat-option value="invalid">Invalid option</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="selected">
+            <mat-option>Clear</mat-option>
+            <mat-option value="valid">Valid option</mat-option>
+            <mat-option value="invalid">Invalid option</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Sub Categoria</mat-label>
+        <mat-select formControlName="selected">
+            <mat-option>Clear</mat-option>
+            <mat-option value="valid">Valid option</mat-option>
+            <mat-option value="invalid">Invalid option</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <app-input-img [title]="'Imagen'" [urlImagenActual]="modelo?.imagen" (archivoSeleccionado)="archivoSeleccionado($event)"></app-input-img>
+    <div>
+        <button mat-flat-button color="primary" [disabled]="!form.valid">Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/producto">Cancelar</a>
+    </div>
+</form>

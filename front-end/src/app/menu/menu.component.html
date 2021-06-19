@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    <span>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+           <mat-icon (click)="abrirMenu()">menu</mat-icon>
+        </button>
+        <a routerLink="" mat-button>
+            <mat-icon>store</mat-icon> Tienda Virtual
+        </a>
+    </span>
+    <div>
+        <a mat-button routerLink="venta/nueva">  <mat-icon>shopping_cart</mat-icon></a>
+    </div>
+    <div>
+        <a mat-button routerLink="venta/nueva"> <mat-icon>price_change</mat-icon></a>
+    </div>
+    <span class="example-spacer"></span>
+    <button routerLink="/logout" mat-icon-button class="right example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>

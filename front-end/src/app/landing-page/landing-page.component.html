@@ -1,0 +1,84 @@
+<div class="text-center">
+    <h1 style="display: inline-block;">Menu Principal</h1> 
+</div>
+<mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>account_balance</mat-icon>
+         </button>
+        <a routerLink="{{tile.text}}"></a>
+    </mat-grid-tile>
+</mat-grid-list>
+<br>
+<!-- main timeline section -->
+<section id="cd-timeline" class="cd-container cssanimations">
+    <!-- single timeline event -->
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img cd-picture">
+        <img src="../../assets/image/event-calender.png">
+      </div>
+      <div class="cd-timeline-content">
+        <h2>Event 1</h2>
+        <p>Event 1 Description </p>
+        <span class="cd-date">Sunday, 19 June 2016</span>
+      </div>
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img cd-picture">
+        <img src="../../assets/image/event-calender.png">
+      </div>
+      <div class="cd-timeline-content">
+        <h2>Event 2</h2>
+        <p>Event 2 Description </p>
+        <span class="cd-date">Monday, 20 June 2016</span>
+      </div>
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img cd-picture">
+        <img src="../../assets/image/event-calender.png">
+      </div>
+      <div class="cd-timeline-content">
+        <h2>Event 3</h2>
+        <p>Event 3 Description </p>
+        <span class="cd-date">Tuesday, 21 June 2016</span>
+      </div>
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img cd-picture">
+        <img src="../../assets/image/event-calender.png">
+      </div>
+      <div class="cd-timeline-content">
+        <h2>Event 4</h2>
+        <p>Event 4 Description </p>
+        <span class="cd-date">Wednesday, 22 June 2016</span>
+      </div>
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img cd-picture">
+        <img src="../../assets/image/event-calender.png">
+      </div>
+      <div class="cd-timeline-content">
+        <h2>Event 5</h2>
+        <p>Event 5 Description </p>
+        <span class="cd-date">Thursday, 23 June 2016</span>
+      </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    $(window).on('scroll', function(){
+        $('.cd-timeline-block').each(function(){
+          if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+            $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+          }
+        });
+      });
+</script>
