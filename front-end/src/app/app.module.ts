@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ListadoGenericoComponent } from './utilidades/listado-generico/listado-generico.component';
 import { MenuComponent } from './menu/menu.component';
@@ -49,6 +51,11 @@ import { InputImgComponent } from './utilidades/input-img/input-img.component';
 import { InputMarkdownComponent } from './utilidades/input-markdown/input-markdown.component';
 import { FormularioCorrelativoComponent } from './correlativo/formulario-correlativo/formulario-correlativo.component';
 import { FormularioCuentasComponent } from './cuentas/formulario-cuentas/formulario-cuentas.component';
+import { MapaComponent } from './utilidades/mapa/mapa/mapa.component';
+
+import 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/images/marker-icon.png';
+import "leaflet/dist/images/marker-icon-2x.png";
 
 @NgModule({
   declarations: [
@@ -94,14 +101,17 @@ import { FormularioCuentasComponent } from './cuentas/formulario-cuentas/formula
     InputImgComponent,
     InputMarkdownComponent,
     FormularioCorrelativoComponent,
-    FormularioCuentasComponent
+    FormularioCuentasComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LeafletModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

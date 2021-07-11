@@ -5,6 +5,16 @@
         <mat-error *ngIf="!form.valid">{{mostrarErroresNombre()}}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
+        <mat-label>Apellido*</mat-label>
+        <input matInput formControlName="apellido">
+        <mat-error *ngIf="!form.valid">{{mostrarErroresApellido()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Nro Documento*</mat-label>
+        <input matInput formControlName="nroDocumento">
+        <mat-error *ngIf="!form.valid">{{mostrarErroresNroDocumento()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
         <mat-label>Fecha de Nacimiento</mat-label>
         <input matInput formControlName="fechaNacimiento" [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

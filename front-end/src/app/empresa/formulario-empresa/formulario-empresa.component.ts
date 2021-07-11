@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Coordanada } from 'src/app/utilidades/mapa/coordenadas';
 import { primeraLetraMayuscula } from 'src/app/utilidades/validadores/primeraLetraMayuscula';
 import { EmpresaCreacionDTO } from '../empresa';
 
@@ -12,11 +13,13 @@ export class FormularioEmpresaComponent implements OnInit {
 
   form : FormGroup;
 
-  @Output()
-  onSubmit: EventEmitter<EmpresaCreacionDTO> = new EventEmitter<EmpresaCreacionDTO>();
-
   @Input()
   modelo: EmpresaCreacionDTO;
+
+  @Output()
+  onSubmit: EventEmitter<EmpresaCreacionDTO> = new EventEmitter<EmpresaCreacionDTO>();
+  
+  coordenadasInicial: Coordanada[] = [];
 
   constructor(private formBuilder : FormBuilder) { }
 
@@ -27,11 +30,14 @@ export class FormularioEmpresaComponent implements OnInit {
       ruc: ['', { validators : [Validators.required, Validators.minLength(3), Validators.maxLength(11), Validators.pattern(/^[0-9]\d*$/) ] }],
       telefono: [''],
       email: ['', { validators: [Validators.required, Validators.email] }],
-      logo:['']
+      logo:[''],
+      latitud: ['', { validators : [ Validators.required ] }],
+      longitud: ['', { validators: [ Validators.required] }]
     });
 
     if(this.modelo !== undefined){
       this.form.patchValue(this.modelo);
+      this.coordenadasInicial.push({latitud:this.modelo.latitud, longitud: this.modelo.longitud});
     }
   }
 
@@ -105,6 +111,10 @@ export class FormularioEmpresaComponent implements OnInit {
 
   archivoSeleccionado(logo:File){
     this.form.get('logo').setValue(logo);
+  }
+
+  coordenadaSeleccionada(coordenada : Coordanada){
+    this.form.patchValue(coordenada);
   }
 
   guardarCambios(){

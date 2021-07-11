@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Coordanada } from 'src/app/utilidades/mapa/coordenadas';
 import { primeraLetraMayuscula } from 'src/app/utilidades/validadores/primeraLetraMayuscula';
 import { AlmacenCreacionDTO } from '../almacen';
 
@@ -20,14 +21,22 @@ export class FormularioAlmacenComponent implements OnInit {
   @Output()
   onSubmit: EventEmitter<AlmacenCreacionDTO> = new EventEmitter<AlmacenCreacionDTO>();
 
+  coordenadasInicial: Coordanada[] = [];
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       nombre : ['', { validators : [Validators.required, Validators.minLength(3), primeraLetraMayuscula()] }],
       capacidad: ['', { validators : [Validators.min(0), Validators.pattern(/^[0-9]\d*$/)] }],
-      estado: ['']
+      latitud: ['', { validators : [ Validators.required ] }],
+      longitud: ['', { validators: [ Validators.required] }],
+      estado: [''],
     });
 
-    this.form.patchValue(this.modelo);
+    if(this.modelo !== undefined){
+      this.form.patchValue(this.modelo);
+      console.log(this.modelo);
+      this.coordenadasInicial.push({latitud:this.modelo.latitud, longitud: this.modelo.longitud});
+    }
   }
 
   obtenerErroresNombre(){
@@ -62,6 +71,9 @@ export class FormularioAlmacenComponent implements OnInit {
     return '';
   }
 
+  coordenadaSeleccionada(coordenada:Coordanada){
+    this.form.patchValue(coordenada);
+  }
 
   guardarCambios(){
     this.onSubmit.emit(this.form.value);

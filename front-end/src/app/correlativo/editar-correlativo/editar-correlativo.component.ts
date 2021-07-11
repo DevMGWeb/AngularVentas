@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CorrelativoCreacionDTO } from '../correlativo';
+import { CorrelativoCreacionDTO, CorrelativoDTO } from '../correlativo';
 
 @Component({
   selector: 'app-editar-correlativo',
@@ -9,7 +9,7 @@ import { CorrelativoCreacionDTO } from '../correlativo';
 })
 export class EditarCorrelativoComponent implements OnInit {
 
-  modelo:CorrelativoCreacionDTO = { correlativoActual:'1212312312' };
+  modelo:CorrelativoDTO = { serie: '0001', correlativoActual:'00000001', correlativoInicial: '00000001', correlativoFinal: '99999999', estado: true, firmaAutorizacion:'', };
 
   constructor(private activatedRoute : ActivatedRoute, private router: Router) { }
 

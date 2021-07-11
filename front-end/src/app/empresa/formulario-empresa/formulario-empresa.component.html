@@ -23,7 +23,14 @@
         <input matInput formControlName="email">
         <mat-error *ngIf="!form.valid">{{obtenerErroresEmail()}}</mat-error>
     </mat-form-field>
-    <app-input-img [title]="'Logo'" [urlImagenActual]="modelo?.foto" (archivoSeleccionado)="archivoSeleccionado($event)"></app-input-img>
+    <app-input-img [title]="'Logo'" [urlImagenActual]="modelo?.logo" (archivoSeleccionado)="archivoSeleccionado($event)"></app-input-img>
+    <h4>Seleccione la empresa en el mapa</h4>
+    <div style="position: relative;">
+        <app-mapa
+        (coordenadaSeleccionada)="coordenadaSeleccionada($event)"
+        [coordenadasIniciales] = "coordenadasInicial"
+        ></app-mapa>
+    </div>
     <div>
         <button mat-flat-button color="primary" [disabled]="!form.valid"> Guardar Cambios </button>
         <a mat-stroked-button routerLink="/empresa">Cancelar</a>

@@ -10,10 +10,13 @@
         <mat-error *ngIf="!form.valid">{{obtenerErroresCapacidad()}}</mat-error>
     </mat-form-field>
     <section class="check-section">
-        <mat-checkbox class="check-margin">   
+        <mat-checkbox class="check-margin" formControlName="estado">   
             Habilitada 
         </mat-checkbox>
     </section>
+    <app-mapa 
+    (coordenadaSeleccionada)="coordenadaSeleccionada($event)" 
+    [coordenadasIniciales]="coordenadasInicial" ></app-mapa>
     <div>
         <button mat-flat-button color="primary" [disabled]="!form.valid">Guardar Cambios</button>
         <a mat-stroked-button routerLink="/almacen">Cancelar</a>

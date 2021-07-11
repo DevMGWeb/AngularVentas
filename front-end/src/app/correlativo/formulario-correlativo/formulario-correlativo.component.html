@@ -1,10 +1,36 @@
 <form [formGroup]="form" (submit)="guardarCambios()">
     <mat-form-field appearance="outline">
+        <mat-label>Serie</mat-label>
+        <input matInput formControlName="serie">
+        <mat-error *ngIf="!form.valid">{{mostrarErroresSerie()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Correlativo Inicial</mat-label>
+        <input matInput formControlName="correlativoInicial">
+        <mat-error *ngIf="!form.valid">{{mostrarErroresCorrelativoInicial()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Correlativo Final</mat-label>
+        <input matInput formControlName="correlativoFinal">
+        <mat-error *ngIf="!form.valid">{{mostrarErroresCorrelativoFinal()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
         <mat-label>Correlativo Actual*</mat-label>
         <input matInput formControlName="correlativoActual">
+        <mat-error *ngIf="!form.valid">{{mostrarErroresCorrelativoActual()}}</mat-error>
     </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Firma Autorizacion</mat-label>
+        <input matInput formControlName="firmaAutorizacion">
+        <mat-error *ngIf="!form.valid">{{mostrarErroresFirmaAutorizacion()}}</mat-error>
+    </mat-form-field>
+    <section class="check-section">
+        <mat-checkbox class="check-margin" formControlName="estado">   
+            Habilitada 
+        </mat-checkbox>
+    </section>
     <div>
-        <button mat-flat-button color="primary">Guardar Cambios</button>
+        <button mat-flat-button color="primary" [disabled]="!form.valid">Guardar Cambios</button>
         <a mat-stroked-button routerLink="/correlativo">Cancelar</a>
     </div>
 </form>

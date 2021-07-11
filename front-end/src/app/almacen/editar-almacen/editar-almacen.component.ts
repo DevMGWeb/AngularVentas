@@ -12,7 +12,7 @@ export class EditarAlmacenComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, 
     private router: Router) { }
 
-  modelo:AlmacenCreacionDTO = { nombre: 'Drama' };
+  modelo:AlmacenCreacionDTO = { nombre: 'Drama',  capacidad: 2000, estado: true, latitud:10.241515796865226, longitud:-68.01166355609895 };
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {

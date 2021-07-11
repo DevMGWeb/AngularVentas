@@ -2,20 +2,32 @@
     <mat-form-field appearance="outline">
         <mat-label>Nombre*</mat-label>
         <input matInput formControlName="nombre">
-        <mat-error *ngIf="!form.valid">{{obtenerErrorNombre()}}</mat-error>
+        <mat-error *ngIf="!form.valid">{{obtenerErroresNombre()}}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>Codigo Fiscal*</mat-label>
-        <input matInput formControlName="nombre">
-        <mat-error *ngIf="!form.valid">{{obtenerErrorNombre()}}</mat-error>
+        <input matInput formControlName="codigoPostal">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresCodigoPostal()}}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>Telefono</mat-label>
-        <input matInput formControlName="nombre">
-        <mat-error *ngIf="!form.valid">{{obtenerErrorNombre()}}</mat-error>
+        <input matInput formControlName="telefono">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresTelefono()}}</mat-error>
     </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Telefono Alterno</mat-label>
+        <input matInput formControlName="telefono2">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Correo Electronico</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="!form.valid">{{obtenerErroresEmail()}}</mat-error>
+    </mat-form-field>
+    <app-mapa 
+    (coordenadaSeleccionada)="coordenadaSeleccionada($event)" 
+    [coordenadasIniciales]="coordenadasInicial"></app-mapa>
     <section class="check-section">
-        <mat-checkbox class="check-margin">   
+        <mat-checkbox class="check-margin" formControlName="estado">    
             Habilitada 
         </mat-checkbox>
     </section>

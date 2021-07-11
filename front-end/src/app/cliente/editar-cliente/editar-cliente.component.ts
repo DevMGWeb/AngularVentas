@@ -9,7 +9,9 @@ import { ClienteCreacionDTO, ClienteDTO } from '../cliente';
 })
 export class EditarClienteComponent implements OnInit {
 
-  modelo: ClienteDTO = { nombre: 'Drama', fechaNacimiento: new Date(), foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Tom_Holland_MTV_2018_%2802%29.jpg/330px-Tom_Holland_MTV_2018_%2802%29.jpg' };
+  apellido:string;
+
+  modelo: ClienteDTO = { nombre: 'Drama', fechaNacimiento: new Date(), foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Tom_Holland_MTV_2018_%2802%29.jpg/330px-Tom_Holland_MTV_2018_%2802%29.jpg', apellido:'', nroDocumento:'' };
 
   constructor(private activatedRoute : ActivatedRoute, 
     private router: Router) { }

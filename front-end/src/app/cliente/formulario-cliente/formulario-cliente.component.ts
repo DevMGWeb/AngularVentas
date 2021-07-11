@@ -22,8 +22,10 @@ export class FormularioClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nombre : ['', { validators: [ Validators.required, Validators.minLength(3), primeraLetraMayuscula() ] }],
+      nombre: ['', { validators: [ Validators.required, Validators.minLength(3) ] }],
+      apellido: ['', { validators: [Validators.required, Validators.minLength(3) ] }],
       fechaNacimiento: [''],
+      nroDocumento: ['', {validators: [Validators.required, Validators.minLength(7), Validators.maxLength(11) ] }],
       foto: ['']
     });
 
@@ -43,8 +45,36 @@ export class FormularioClienteComponent implements OnInit {
       return 'El campo debe tener una longitud minima de 3 caraceteres';
     }
 
-    if(nombre.hasError('primeraLetraMayuscula')){
-      return nombre.getError('primeraLetraMayuscula').mensaje;
+    return '';
+  }
+
+  mostrarErroresApellido(){
+    var nombre = this.form.get('apellido');
+
+    if(nombre.hasError("required")){
+      return 'Campo es requerido';
+    }
+
+    if(nombre.hasError("minlength")){
+      return 'El campo debe tener una longitud minima de 3 caraceteres';
+    }
+
+    return '';
+  }
+
+  mostrarErroresNroDocumento(){
+    var nombre = this.form.get('nroDocumento');
+
+    if(nombre.hasError("required")){
+      return 'Campo es requerido';
+    }
+
+    if(nombre.hasError("minlength")){
+      return 'El campo debe tener una longitud minima de 7 caraceteres';
+    }
+
+    if(nombre.hasError("maxlength")){
+      return 'El campo debe tener una longitud minima de 11 caraceteres';
     }
 
     return '';

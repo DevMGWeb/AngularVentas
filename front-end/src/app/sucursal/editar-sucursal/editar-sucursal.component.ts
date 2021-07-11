@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SucursalCreacionDTO } from '../sucursal';
+import { SucursalCreacionDTO, SucursalDTO } from '../sucursal';
 
 @Component({
   selector: 'app-editar-sucursal',
@@ -11,7 +11,7 @@ export class EditarSucursalComponent implements OnInit {
 
   constructor(private activatedRoute : ActivatedRoute, private router: Router) { }
 
-  modelo : SucursalCreacionDTO = { nombre : 'Sucursal' }; 
+  modelo : SucursalDTO = { nombre : 'Sucursal', codigoPostal: '', telefono:'', telefono2:'', email: '', estado: true, latitud:1, longitud:1 }; 
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -19,7 +19,7 @@ export class EditarSucursalComponent implements OnInit {
     });
   }
 
-  guardarCambios(sucursal:SucursalCreacionDTO){
+  guardarCambios(sucursal:SucursalDTO){
     console.log(sucursal);
     this.router.navigate(["/sucursal"]);
   }
